@@ -55,6 +55,7 @@ public class ShiroConfig {
 
         // other stuff...
 
+        //securityManager.setRealm(accountRealm);
         return securityManager;
     }
 
@@ -66,6 +67,7 @@ public class ShiroConfig {
         chainDefinition.addPathDefinitions(filterMap);
         return chainDefinition;
     }
+
     @Bean("shiroFilterFactoryBean")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
                                                          ShiroFilterChainDefinition shiroFilterChainDefinition) {

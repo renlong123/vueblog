@@ -75,6 +75,7 @@
         </dependency>
 
 
+
         <dependency>
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis-spring-boot-starter</artifactId>
