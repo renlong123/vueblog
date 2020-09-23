@@ -65,4 +65,19 @@ public class BlogController {
         blogService.saveOrUpdate(temp);
         return Result.success(null);
     }
+
+    /*
+    * 删除，需要权限
+    * */
+    @RequiresAuthentication
+    @DeleteMapping("/blog/delete")
+    public Result delete(@RequestBody Blog blog){
+        Assert.isTrue(blog.getUserId() == ShiroUtil.getProfile().getId(),"没有权限编辑");
+        boolean b = blogService.removeById(blog.getId());
+        if(b){
+            return Result.success("删除成功");
+        }else{
+            return Result.fail("删除失败");
+        }
+    }
 }
